@@ -1,7 +1,43 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://storeapp.si/</loc>
-  </url>
+  <url><loc>https://storeapp.si/</loc></url>
+  <url><loc>https://storeapp.si/tools/chatgpt/</loc></url>
+  <url><loc>https://storeapp.si/tools/claude/</loc></url>
+  <url><loc>https://storeapp.si/tools/perplexity/</loc></url>
+  <url><loc>https://storeapp.si/tools/canva/</loc></url>
+  <url><loc>https://storeapp.si/tools/runway/</loc></url>
+  <url><loc>https://storeapp.si/tools/github-copilot/</loc></url>
+  <url><loc>https://storeapp.si/tools/google-gemini/</loc></url>
+  <url><loc>https://storeapp.si/tools/microsoft-copilot/</loc></url>
+  <url><loc>https://storeapp.si/tools/deepseek/</loc></url>
+  <url><loc>https://storeapp.si/tools/meta-ai/</loc></url>
+  <url><loc>https://storeapp.si/tools/grok/</loc></url>
+  <url><loc>https://storeapp.si/tools/notebooklm/</loc></url>
+  <url><loc>https://storeapp.si/tools/google-translate/</loc></url>
+  <url><loc>https://storeapp.si/tools/deepl/</loc></url>
+  <url><loc>https://storeapp.si/tools/grammarly/</loc></url>
+  <url><loc>https://storeapp.si/tools/quillbot/</loc></url>
+  <url><loc>https://storeapp.si/tools/midjourney/</loc></url>
+  <url><loc>https://storeapp.si/tools/adobe-firefly/</loc></url>
+  <url><loc>https://storeapp.si/tools/leonardo-ai/</loc></url>
+  <url><loc>https://storeapp.si/tools/suno/</loc></url>
+  <url><loc>https://storeapp.si/tools/elevenlabs/</loc></url>
+  <url><loc>https://storeapp.si/tools/capcut/</loc></url>
+  <url><loc>https://storeapp.si/tools/heygen/</loc></url>
+  <url><loc>https://storeapp.si/tools/cursor/</loc></url>
+  <url><loc>https://storeapp.si/tools/replit/</loc></url>
+  <url><loc>https://storeapp.si/tools/zapier/</loc></url>
+  <url><loc>https://storeapp.si/guides/</loc></url>
+  <url><loc>https://storeapp.si/guides/ai-tools-for-small-business/</loc></url>
+  <url><loc>https://storeapp.si/guides/ai-writing-tools-guide/</loc></url>
+  <url><loc>https://storeapp.si/guides/ai-video-tools-guide/</loc></url>
+  <url><loc>https://storeapp.si/guides/ai-research-tools-guide/</loc></url>
+  <url><loc>https://storeapp.si/guides/ai-tools-for-students/</loc></url>
+  <url><loc>https://storeapp.si/comparisons/chatgpt-vs-gemini/</loc></url>
+  <url><loc>https://storeapp.si/comparisons/deepl-vs-google-translate/</loc></url>
+  <url><loc>https://storeapp.si/comparisons/runway-vs-capcut/</loc></url>
+  <url><loc>https://storeapp.si/about/</loc></url>
+  <url><loc>https://storeapp.si/privacy/</loc></url>
+  <url><loc>https://storeapp.si/partners/</loc></url>
+  <url><loc>https://storeapp.si/submit-tool/</loc></url>
 </urlset>
-
