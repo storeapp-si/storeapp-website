@@ -103,7 +103,7 @@
   launcher.addEventListener("pointermove", event => {
     if (!dragging || event.pointerId !== pointerId) return;
     const dx = event.clientX - startX, dy = event.clientY - startY;
-    if (Math.abs(dx) + Math.abs(dy) > 7) moved = true;
+    if (Math.hypot(dx, dy) > 14) moved = true;
     if (!moved) return;
     const x = Math.max(8, Math.min(window.innerWidth - launcher.offsetWidth - 8, offsetX + dx));
     const y = Math.max(8, Math.min(window.innerHeight - launcher.offsetHeight - 8, offsetY + dy));
