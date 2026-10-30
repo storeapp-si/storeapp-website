@@ -115,13 +115,19 @@
   launcher.addEventListener("pointerup", event => {
     if (event.pointerId !== pointerId) return;
     dragging = false;
-    if (!moved) openMenu();
     pointerId = null;
   });
-  launcher.addEventListener("pointercancel", () => { dragging = false; pointerId = null; });
-  launcher.addEventListener("keydown", event => {
-    if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openMenu(); }
+  // Use the native click event for taps; it is more reliable on mobile browsers
+  // than opening directly from pointerup after pointer capture.
+  launcher.addEventListener("click", event => {
+    if (moved) {
+      event.preventDefault();
+      moved = false;
+      return;
+    }
+    openMenu();
   });
+  launcher.addEventListener("pointercancel", () => { dragging = false; pointerId = null; moved = false; });
   closeButton.addEventListener("click", closeMenu);
   menu.addEventListener("click", event => { if (event.target === menu) closeMenu(); });
   document.addEventListener("keydown", event => { if (event.key === "Escape" && opened) closeMenu(); });
