@@ -23,13 +23,14 @@
     .sa-menu-item{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;width:clamp(94px,25vw,116px);height:clamp(94px,25vw,116px);padding:8px;border:1px solid #1678ff;border-radius:50%;background:linear-gradient(145deg,#0b1b42f5,#07132ff5);color:#f5f8ff;text-decoration:none;text-align:center;font:600 clamp(11px,3vw,13px)/1.35 system-ui,sans-serif;box-shadow:0 0 22px #075cff35,inset 0 0 18px #0b4ed522;transition:transform .18s,border-color .18s,box-shadow .18s}
     .sa-menu-item:hover,.sa-menu-item:focus-visible{transform:scale(1.07);border-color:#22e2ff;box-shadow:0 0 30px #087dff88;outline:none}
     .sa-menu-item .sa-menu-icon{font-size:clamp(24px,7vw,31px);line-height:1;color:#65dfff;text-shadow:0 0 13px #168cff}
-    .sa-menu-item:nth-child(1){top:0;left:50%;transform:translateX(-50%)}
-    .sa-menu-item:nth-child(2){top:23%;right:-1%}
-    .sa-menu-item:nth-child(3){bottom:5%;right:8%}
-    .sa-menu-item:nth-child(4){bottom:5%;left:8%}
-    .sa-menu-item:nth-child(5){top:23%;left:-1%}
+    .sa-menu-item:nth-of-type(1){top:0;left:50%;transform:translateX(-50%)}
+    .sa-menu-item:nth-of-type(2){top:23%;right:-1%}
+    .sa-menu-item:nth-of-type(3){bottom:23%;right:-1%}
+    .sa-menu-item:nth-of-type(4){bottom:0;left:50%;transform:translateX(-50%)}
+    .sa-menu-item:nth-of-type(5){bottom:23%;left:-1%}
+    .sa-menu-item:nth-of-type(6){top:23%;left:-1%}
     #sa-orb-close{position:absolute;top:4%;right:4%;width:43px;height:43px;border:1px solid #2b7cff;border-radius:50%;background:#091a3b;color:#fff;font-size:25px;cursor:pointer;box-shadow:0 0 18px #176bff66}
-    @media(max-width:420px){.sa-menu-wheel{width:88vw;height:88vw}.sa-menu-item:nth-child(2){right:-3%}.sa-menu-item:nth-child(5){left:-3%}}
+    @media(max-width:420px){.sa-menu-wheel{width:88vw;height:88vw}.sa-menu-item:nth-of-type(2){right:-3%}.sa-menu-item:nth-of-type(3){right:-3%}.sa-menu-item:nth-of-type(5){left:-3%}.sa-menu-item:nth-of-type(6){left:-3%}}
     @media(prefers-reduced-motion:reduce){#sa-orb-launcher,#sa-orb-menu,.sa-menu-item{transition:none!important;animation:none!important}#sa-orb-trail{display:none!important}}
   `;
   document.head.appendChild(style);
@@ -54,6 +55,7 @@
   menu.innerHTML = `
     <div class="sa-menu-wheel">
       <button id="sa-orb-close" type="button" aria-label="Close menu">×</button>
+      <a class="sa-menu-item" href="/"><span class="sa-menu-icon" aria-hidden="true">⌂</span><span>Home</span></a>
       <a class="sa-menu-item" href="/#directory"><span class="sa-menu-icon" aria-hidden="true">⌕</span><span>Discover tools</span></a>
       <a class="sa-menu-item" href="/tools/chatgpt/"><span class="sa-menu-icon" aria-hidden="true">✧</span><span>AI tools</span></a>
       <a class="sa-menu-item" href="/comparisons/"><span class="sa-menu-icon" aria-hidden="true">▤</span><span>Comparisons</span></a>
