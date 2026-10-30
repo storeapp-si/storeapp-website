@@ -76,7 +76,7 @@
     void trail.offsetWidth;
     trail.classList.add("sa-trailing");
     launcher.classList.add("sa-burst");
-    window.setTimeout(() => { launcher.style.display = "none"; }, 180);
+    window.setTimeout(() => { if (opened) launcher.style.display = "none"; }, 180);
     menu.classList.add("sa-open");
     closeButton.focus({preventScroll:true});
     document.body.style.overflow = "hidden";
