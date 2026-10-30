@@ -114,20 +114,23 @@
   });
   launcher.addEventListener("pointerup", event => {
     if (event.pointerId !== pointerId) return;
+    const wasDragged = moved;
     dragging = false;
     pointerId = null;
+    moved = false;
+    if (!wasDragged) openMenu();
   });
-  // Use the native click event for taps; it is more reliable on mobile browsers
-  // than opening directly from pointerup after pointer capture.
+  // Pointer events handle touch and mouse taps. Keep click only for
+  // keyboard and assistive-technology activation (detail === 0).
   launcher.addEventListener("click", event => {
-    if (moved) {
-      event.preventDefault();
-      moved = false;
-      return;
-    }
-    openMenu();
+    event.preventDefault();
+    if (event.detail === 0) openMenu();
   });
-  launcher.addEventListener("pointercancel", () => { dragging = false; pointerId = null; moved = false; });
+  launcher.addEventListener("pointercancel", () => {
+    dragging = false;
+    pointerId = null;
+    moved = false;
+  });
   closeButton.addEventListener("click", closeMenu);
   menu.addEventListener("click", event => { if (event.target === menu) closeMenu(); });
   document.addEventListener("keydown", event => { if (event.key === "Escape" && opened) closeMenu(); });
