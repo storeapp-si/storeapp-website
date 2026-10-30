@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#10111b">
 
-  <title>StoreApp.si – Discover the Best AI Tools & Software</title>
+  <title>StoreApp.si – AI Tools Directory &amp; Software Discovery</title>
   <meta name="description" content="Explore an independent AI tools directory for writing, research, design, video, coding and productivity. Compare use cases and visit official websites.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://storeapp.si/">
@@ -24,11 +24,33 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "StoreApp.si",
-    "url": "https://storeapp.si/",
-    "description": "Explore an independent AI tools directory for writing, research, design, video, coding and productivity. Compare use cases and visit official websites.",
-    "inLanguage": "en"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://storeapp.si/#organization",
+        "name": "StoreApp.si",
+        "url": "https://storeapp.si/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://storeapp.si/#website",
+        "name": "StoreApp.si",
+        "url": "https://storeapp.si/",
+        "description": "Explore an independent AI tools directory for writing, research, design, video, coding and productivity. Compare use cases and visit official websites.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://storeapp.si/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://storeapp.si/#webpage",
+        "url": "https://storeapp.si/",
+        "name": "StoreApp.si – AI Tools Directory & Software Discovery",
+        "description": "Explore an independent AI tools directory for writing, research, design, video, coding and productivity. Compare use cases and visit official websites.",
+        "isPartOf": { "@id": "https://storeapp.si/#website" },
+        "about": { "@id": "https://storeapp.si/#organization" },
+        "inLanguage": "en"
+      }
+    ]
   }
   </script>
 
