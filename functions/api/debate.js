@@ -59,12 +59,21 @@ export async function onRequestOptions() {
   });
 }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(context) {
+  const request = context.request;
+  const env = context.env || {};
   const origin = request.headers.get("Origin");
   if (origin && origin !== ALLOWED_ORIGIN) return json({ error: "Origin not allowed." }, 403);
-  if (!env.OPENROUTER_API_KEY || !env.OPENROUTER_MODEL_A || !env.OPENROUTER_MODEL_B) {
+
+  const requiredBindings = ["OPENROUTER_API_KEY", "OPENROUTER_MODEL_A", "OPENROUTER_MODEL_B"];
+  const missingBindings = requiredBindings.filter((name) => {
+    const value = env[name];
+    return typeof value !== "string" || value.trim() === "";
+  });
+  if (missingBindings.length) {
     return json({
-      error: "AI Debate is not configured yet. The site owner must add OPENROUTER_API_KEY, OPENROUTER_MODEL_A and OPENROUTER_MODEL_B as Cloudflare Pages environment secrets."
+      error: "AI Debate runtime configuration is missing: " + missingBindings.join(", ") +
+        ". Add these under the Pages Functions runtime Bindings / Variables and Secrets for the Production environment, then create a new deployment. Build-time variables alone are not available to Pages Functions."
     }, 503);
   }
 
@@ -87,7 +96,7 @@ export async function onRequestPost({ request, env }) {
   if (question.length > MAX_QUESTION_LENGTH) {
     return json({ error: "Question must be 3,000 characters or fewer." }, 400);
   }
-  if (env.OPENROUTER_MODEL_A === env.OPENROUTER_MODEL_B) {
+  if (env.OPENROUTER_MODEL_A.trim() === env.OPENROUTER_MODEL_B.trim()) {
     return json({ error: "Configure two different model IDs to compare perspectives." }, 503);
   }
 
@@ -96,22 +105,22 @@ export async function onRequestPost({ request, env }) {
   try {
     const system = "You are participating in a structured AI debate. Give a clear, independent, evidence-conscious answer. State assumptions, explain trade-offs, distinguish facts from opinions, and acknowledge uncertainty. Do not invent citations or claim to have browsed the web.";
     const [answerA, answerB] = await Promise.all([
-      askModel(env.OPENROUTER_API_KEY, env.OPENROUTER_MODEL_A, question, system, controller.signal),
-      askModel(env.OPENROUTER_API_KEY, env.OPENROUTER_MODEL_B, question, system, controller.signal)
+      askModel(env.OPENROUTER_API_KEY, env.OPENROUTER_MODEL_A.trim(), question, system, controller.signal),
+      askModel(env.OPENROUTER_API_KEY, env.OPENROUTER_MODEL_B.trim(), question, system, controller.signal)
     ]);
 
     const synthesisPrompt = "Compare the two model responses to the original question. Produce a balanced synthesis with these headings: Agreement, Key differences, Strongest points, What remains uncertain, Practical conclusion. Do not assume either answer is correct merely because it is confident. Do not invent sources.\n\nQUESTION:\n" +
       question + "\n\nMODEL A:\n" + answerA + "\n\nMODEL B:\n" + answerB;
     const synthesis = await askModel(
       env.OPENROUTER_API_KEY,
-      env.OPENROUTER_MODEL_A,
+      env.OPENROUTER_MODEL_A.trim(),
       synthesisPrompt,
       "You are a neutral evaluator comparing AI answers. Be precise, fair and concise.",
       controller.signal
     );
 
     return json({
-      models: { a: env.OPENROUTER_MODEL_A, b: env.OPENROUTER_MODEL_B },
+      models: { a: env.OPENROUTER_MODEL_A.trim(), b: env.OPENROUTER_MODEL_B.trim() },
       answers: { a: answerA, b: answerB },
       synthesis
     });
