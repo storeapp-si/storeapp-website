@@ -2,7 +2,7 @@
   "use strict";
 
   // Google Analytics 4 — shared site script loaded by the site's HTML pages.
-  const STOREAPP_GA4_ID = "G-TTX5P5B9PQ";
+  const STOREAPP_GA4_ID = "G-GDLCV9JWV7";
   if (!window.__storeAppGA4Loaded) {
     window.__storeAppGA4Loaded = true;
     window.dataLayer = window.dataLayer || [];
