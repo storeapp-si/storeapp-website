@@ -1,5 +1,20 @@
 (() => {
   "use strict";
+
+  // Google Analytics 4 — shared site script loaded by the site's HTML pages.
+  const STOREAPP_GA4_ID = "G-TTX5P5B9PQ";
+  if (!window.__storeAppGA4Loaded) {
+    window.__storeAppGA4Loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", STOREAPP_GA4_ID);
+    const gaScript = document.createElement("script");
+    gaScript.async = true;
+    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + STOREAPP_GA4_ID;
+    document.head.appendChild(gaScript);
+  }
+
   if (window.__storeAppOrbReady) return;
   window.__storeAppOrbReady = true;
 
