@@ -478,12 +478,19 @@
       width: 47px;
       height: 47px;
       place-items: center;
+      overflow: hidden;
       border: 1px solid #38354f;
       border-radius: 13px;
-      background: #242238;
-      color: #c8beff;
-      font-size: 1.3rem;
-      font-weight: 800;
+      background: #fff;
+      padding: 5px;
+    }
+
+    .symbol img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
     }
 
     .card h3 {
@@ -1003,7 +1010,7 @@
             data-search="chatgpt openai assistant writing brainstorming explanations research learning summaries productivity questions"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">✳</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&amp;sz=128" alt="ChatGPT logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>ChatGPT</h3>
                 <span class="tag">Writing · Research · Productivity</span>
@@ -1029,7 +1036,7 @@
             data-search="claude anthropic writing analysis long documents reasoning summaries research productivity"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">✳</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=claude.ai&amp;sz=128" alt="Claude logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Claude</h3>
                 <span class="tag">Writing · Research · Productivity</span>
@@ -1055,7 +1062,7 @@
             data-search="perplexity answer engine web search research sources citations information discovery"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">⌕</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=perplexity.ai&amp;sz=128" alt="Perplexity logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Perplexity</h3>
                 <span class="tag">Research · Productivity</span>
@@ -1081,7 +1088,7 @@
             data-search="canva graphic design presentations social media images templates visual content"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">◈</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=canva.com&amp;sz=128" alt="Canva logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Canva</h3>
                 <span class="tag">Design · Productivity</span>
@@ -1107,7 +1114,7 @@
             data-search="runway video generation editing creative filmmaking image to video visual production"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">▶</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=runwayml.com&amp;sz=128" alt="Runway logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Runway</h3>
                 <span class="tag">Video · Design</span>
@@ -1133,7 +1140,7 @@
             data-search="github copilot programming developer code completion software development coding assistant"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">⌘</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=128" alt="GitHub Copilot logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>GitHub Copilot</h3>
                 <span class="tag">Coding · Productivity</span>
@@ -1159,7 +1166,7 @@
             data-search="google gemini google ai assistant multimodal writing reasoning research summarize images files productivity"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">✦</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=gemini.google.com&amp;sz=128" alt="Google Gemini logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Google Gemini</h3>
                 <span class="tag">Writing · Research · Productivity</span>
@@ -1181,7 +1188,7 @@
             data-search="microsoft copilot assistant writing web answers productivity microsoft apps work"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">◉</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=copilot.microsoft.com&amp;sz=128" alt="Microsoft Copilot logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Microsoft Copilot</h3>
                 <span class="tag">Writing · Research · Productivity</span>
@@ -1203,7 +1210,7 @@
             data-search="deepseek ai chat reasoning coding programming mathematics research assistant"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">◆</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=deepseek.com&amp;sz=128" alt="DeepSeek logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>DeepSeek</h3>
                 <span class="tag">Writing · Research · Coding</span>
@@ -1225,7 +1232,7 @@
             data-search="meta ai assistant chat image generation questions writing social apps"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">∞</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=meta.ai&amp;sz=128" alt="Meta AI logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Meta AI</h3>
                 <span class="tag">Writing · Research · Design</span>
@@ -1247,7 +1254,7 @@
             data-search="grok xai assistant chat research current information reasoning writing"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">𝕏</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=grok.com&amp;sz=128" alt="Grok logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Grok</h3>
                 <span class="tag">Writing · Research</span>
@@ -1269,7 +1276,7 @@
             data-search="notebooklm google sources documents notes research summaries study guide audio overview"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">▤</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google.com&amp;sz=128" alt="NotebookLM logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>NotebookLM</h3>
                 <span class="tag">Research · Productivity</span>
@@ -1291,7 +1298,7 @@
             data-search="google translate translation languages text voice images documents multilingual"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">文</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=translate.google.com&amp;sz=128" alt="Google Translate logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Google Translate</h3>
                 <span class="tag">Translation · Productivity</span>
@@ -1313,7 +1320,7 @@
             data-search="deepl translator translation writing languages documents rewrite improve text"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">D</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=deepl.com&amp;sz=128" alt="DeepL logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>DeepL</h3>
                 <span class="tag">Translation · Writing</span>
@@ -1335,7 +1342,7 @@
             data-search="grammarly grammar spelling clarity tone writing assistant proofreading english"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">G</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=grammarly.com&amp;sz=128" alt="Grammarly logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Grammarly</h3>
                 <span class="tag">Writing · Productivity</span>
@@ -1357,7 +1364,7 @@
             data-search="quillbot paraphrase paraphrasing summarizer grammar checker writing citations"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">Q</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=quillbot.com&amp;sz=128" alt="QuillBot logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>QuillBot</h3>
                 <span class="tag">Writing · Productivity</span>
@@ -1379,7 +1386,7 @@
             data-search="midjourney ai image generation art illustration visual concepts design"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">✺</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=midjourney.com&amp;sz=128" alt="Midjourney logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Midjourney</h3>
                 <span class="tag">Design · Image generation</span>
@@ -1401,7 +1408,7 @@
             data-search="adobe firefly generative ai images design creative cloud image editing effects"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">✷</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=firefly.adobe.com&amp;sz=128" alt="Adobe Firefly logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Adobe Firefly</h3>
                 <span class="tag">Design · Image editing</span>
@@ -1423,7 +1430,7 @@
             data-search="leonardo ai image generation visual assets game assets concept art design"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">◈</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=leonardo.ai&amp;sz=128" alt="Leonardo AI logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Leonardo AI</h3>
                 <span class="tag">Design · Image generation</span>
@@ -1445,7 +1452,7 @@
             data-search="suno ai music song generation lyrics vocals audio composition"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">♫</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=suno.com&amp;sz=128" alt="Suno logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Suno</h3>
                 <span class="tag">Audio · Music</span>
@@ -1467,7 +1474,7 @@
             data-search="elevenlabs text to speech voice generation dubbing audio narration speech"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">≋</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=elevenlabs.io&amp;sz=128" alt="ElevenLabs logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>ElevenLabs</h3>
                 <span class="tag">Audio · Video</span>
@@ -1489,7 +1496,7 @@
             data-search="capcut video editor editing captions templates social media videos ai tools"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">▰</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=capcut.com&amp;sz=128" alt="CapCut logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>CapCut</h3>
                 <span class="tag">Video · Design</span>
@@ -1511,7 +1518,7 @@
             data-search="heygen ai video avatar presenter translation dubbing talking video"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">▶</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=heygen.com&amp;sz=128" alt="HeyGen logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>HeyGen</h3>
                 <span class="tag">Video · Avatars</span>
@@ -1533,7 +1540,7 @@
             data-search="cursor ai code editor programming developer codebase debugging software development"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">⌘</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=cursor.com&amp;sz=128" alt="Cursor logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Cursor</h3>
                 <span class="tag">Coding · Productivity</span>
@@ -1555,7 +1562,7 @@
             data-search="replit online coding browser app development ai code websites prototypes"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">▣</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=replit.com&amp;sz=128" alt="Replit logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Replit</h3>
                 <span class="tag">Coding · Productivity</span>
@@ -1577,7 +1584,7 @@
             data-search="zapier workflow automation connect apps automate tasks integrations productivity ai"
           >
             <div class="card-top">
-              <div class="symbol" aria-hidden="true">⚡</div>
+              <div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=zapier.com&amp;sz=128" alt="Zapier logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
               <div>
                 <h3>Zapier</h3>
                 <span class="tag">Productivity · Automation</span>
