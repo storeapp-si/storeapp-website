@@ -10,6 +10,8 @@
   <meta name="description" content="Explore an independent AI tools directory for writing, research, design, video, coding and productivity. Compare use cases and visit official websites.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://storeapp.si/">
+  <link rel="icon" type="image/svg+xml" href="/assets/storeapp-logo-mark.svg">
+  <link rel="apple-touch-icon" href="/assets/storeapp-logo-mark.svg">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="StoreApp.si">
@@ -166,15 +168,12 @@
     }
 
     .brand-mark {
-      display: grid;
-      width: 37px;
-      height: 37px;
-      place-items: center;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #b7aaff, #7c6af1);
-      color: #151326;
-      font-size: 1.1rem;
-      font-weight: 900;
+      display: block;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      object-fit: contain;
+      border-radius: 10px;
     }
 
     .brand-dot {
@@ -902,7 +901,7 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="/" aria-label="StoreApp.si home">
-        <span class="brand-mark" aria-hidden="true">S</span>
+        <img class="brand-mark" src="/assets/storeapp-logo-mark.svg" alt="" aria-hidden="true" width="42" height="42">
         <span>StoreApp<span class="brand-dot">.si</span></span>
       </a>
 
