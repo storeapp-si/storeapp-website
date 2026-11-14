@@ -3,14 +3,39 @@
  <linearGradient id="bag" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#dce9ff"/></linearGradient>
  <linearGradient id="s" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00d5ff"/><stop offset=".52" stop-color="#245cff"/><stop offset="1" stop-color="#c02cff"/></linearGradient>
  <linearGradient id="orbit" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#df28ff"/><stop offset=".55" stop-color="#315bff"/><stop offset="1" stop-color="#00e7ed"/></linearGradient>
- <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+ <linearGradient id="word" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#fff"/><stop offset=".78" stop-color="#eaf2ff"/><stop offset="1" stop-color="#00d9ef"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
 </defs>
-<ellipse cx="255" cy="438" rx="155" ry="18" fill="#315bff" opacity=".22" filter="url(#shadow)"/>
-<path d="M177 155v-36a79 79 0 0 1 158 0v36" fill="none" stroke="#1b8cff" stroke-width="27" stroke-linecap="round"/>
-<path d="M145 150h222a30 30 0 0 1 30 30v242a30 30 0 0 1-30 30H145a30 30 0 0 1-30-30V180a30 30 0 0 1 30-30Z" fill="url(#bag)" stroke="#fff" stroke-width="8"/>
-<path d="M173 247c0-28 20-48 51-48h115c14 0 24 10 24 24s-10 24-24 24H222c-5 0-8 3-8 8 0 4 3 7 8 7h78c39 0 64 22 64 57 0 34-26 57-64 57H178c-14 0-24-10-24-24s10-24 24-24h122c7 0 11-3 11-9s-4-9-11-9h-76c-32 0-51-22-51-53Z" fill="url(#s)"/>
-<path d="M67 306c50-92 300-160 380-104 45 32-21 104-104 147-99 51-219 68-274 35" fill="none" stroke="url(#orbit)" stroke-width="19" stroke-linecap="round"/>
-<path d="m398 70 10 25 25 10-25 10-10 25-10-25-25-10 25-10Z" fill="#11d9ff"/>
-<g transform="translate(350 345)"><rect width="54" height="54" rx="13" fill="#178cff"/><path d="M15 15h9v9h-9zm15 0h9v9h-9zM15 30h9v9h-9zm15 0h9v9h-9z" fill="#fff"/></g>
-<g transform="translate(412 345)"><rect width="54" height="54" rx="13" fill="#a52cff"/><path d="m20 14-10 13 10 13m14-26 10 13-10 13" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<ellipse cx="238" cy="387" rx="155" ry="13" fill="#315bff" opacity=".16" filter="url(#shadow)"/>
+<!-- bag handle -->
+<path d="M157 137v-27a70 70 0 0 1 140 0v27" fill="none" stroke="#168cff" stroke-width="22" stroke-linecap="round"/>
+<!-- bag -->
+<path d="M130 132h194a27 27 0 0 1 27 27v211a27 27 0 0 1-27 27H130a27 27 0 0 1-27-27V159a27 27 0 0 1 27-27Z" fill="url(#bag)" stroke="#fff" stroke-width="5"/>
+<!-- ribbon S -->
+<path d="M139 205c0-24 18-41 44-41h103c12 0 21 9 21 21s-9 21-21 21h-96c-5 0-8 3-8 7 0 4 3 7 8 7h69c34 0 55 19 55 49s-22 49-55 49H143c-12 0-21-9-21-21s9-21 21-21h106c6 0 9-3 9-8s-3-8-9-8h-66c-27 0-44-19-44-55Z" fill="url(#s)"/>
+<!-- orbit -->
+<path d="M45 273c42-77 248-133 316-88 38 26-18 88-87 124-82 42-182 56-228 29" fill="none" stroke="url(#orbit)" stroke-width="15" stroke-linecap="round"/>
+<!-- sparkles -->
+<path d="m350 65 8 20 20 8-20 8-8 20-8-20-20-8 20-8Z" fill="#11d9ff"/>
+<path d="m399 105 5 13 13 5-13 5-5 13-5-13-13-5 13-5Z" fill="#c02cff"/>
+<!-- 2x2 app tiles -->
+<g transform="translate(354 235)">
+ <rect width="57" height="57" rx="13" fill="#168cff"/>
+ <path d="M15 15h10v10H15zm17 0h10v10H32zM15 32h10v10H15zm17 0h10v10H32z" fill="#fff"/>
+</g>
+<g transform="translate(420 235)">
+ <rect width="57" height="57" rx="13" fill="#18d95c"/>
+ <path d="M22 14v29l23-14Z" fill="#fff"/>
+</g>
+<g transform="translate(354 301)">
+ <rect width="57" height="57" rx="13" fill="#ffae12"/>
+ <circle cx="19" cy="18" r="5" fill="#fff"/>
+ <path d="m10 45 13-16 9 9 8-11 9 18Z" fill="#fff"/>
+</g>
+<g transform="translate(420 301)">
+ <rect width="57" height="57" rx="13" fill="#a52cff"/>
+ <path d="m22 15-11 13 11 13m13-26 11 13-11 13" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<!-- complete brand name below -->
+<text x="256" y="457" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="49" font-weight="800" letter-spacing="-2" fill="url(#word)">StoreApp<tspan fill="#16d9ef">.si</tspan></text>
 </svg>
