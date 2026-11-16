@@ -464,6 +464,61 @@
       display: none !important;
     }
 
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 28px 0 8px;
+    }
+
+    .pagination[hidden] {
+      display: none !important;
+    }
+
+    .page-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      min-height: 42px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color .18s ease, background .18s ease, transform .18s ease;
+    }
+
+    .page-button:hover:not(:disabled) {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .page-button[aria-current="page"] {
+      border-color: transparent;
+      background: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .page-button:disabled {
+      opacity: .38;
+      cursor: not-allowed;
+    }
+
+    .page-ellipsis {
+      padding: 0 3px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 480px) {
+      .pagination { gap: 6px; }
+      .page-button { min-width: 38px; min-height: 40px; padding: 7px 9px; }
+    }
+
     .card-top {
       display: flex;
       align-items: center;
@@ -1870,6 +1925,12 @@
 <article class="card" data-name="Cognite" data-category="Energy Manufacturing" data-search="cognite industrial ai · energy industrial data and ai platform connecting operational data and context for analytics in asset-heavy industries. industrial operations and asset analytics artificial intelligence ai"><div class="card-top"><div class="symbol" aria-hidden="true"><img src="https://www.google.com/s2/favicons?domain=cognite.com&amp;sz=256" data-fallback="https://cognite.com/favicon.ico" alt="Cognite logo" width="36" height="36" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div><h3>Cognite</h3><span class="tag">Industrial AI · Energy</span></div></div><p>Industrial data and AI platform connecting operational data and context for analytics in asset-heavy industries.</p><div class="best-for"><strong>Useful for:</strong> Industrial operations and asset analytics</div><a class="details-link" href="/tools/cognite/">Read tool guide →</a><a class="visit" href="https://www.cognite.com/" target="_blank" rel="noopener noreferrer">Visit official website ↗</a></article>
         </div>
 
+        <nav class="pagination" id="tool-pagination" aria-label="Tool directory pages" hidden>
+          <button class="page-button" id="page-previous" type="button" aria-label="Previous page">←</button>
+          <div id="page-numbers" class="pagination" aria-label="Choose page" style="margin:0"></div>
+          <button class="page-button" id="page-next" type="button" aria-label="Next page">→</button>
+        </nav>
+
         <div class="empty-state" id="empty-state" role="status">
           <h3>No matching tools found</h3>
           <p>Try a different keyword or choose another category.</p>
@@ -2122,6 +2183,13 @@
       const resetButton = document.getElementById("reset-filters");
       const emptyResetButton = document.getElementById("empty-reset");
       const yearElement = document.getElementById("current-year");
+      const pagination = document.getElementById("tool-pagination");
+      const pageNumbers = document.getElementById("page-numbers");
+      const previousButton = document.getElementById("page-previous");
+      const nextButton = document.getElementById("page-next");
+      const pageSize = 12;
+      let currentPage = 1;
+      let matchingCards = [];
 
       let activeCategory = "All";
 
@@ -2153,12 +2221,86 @@
         });
       }
 
+      function renderPagination() {
+        const totalPages = Math.ceil(matchingCards.length / pageSize);
+        currentPage = Math.min(Math.max(currentPage, 1), Math.max(totalPages, 1));
+        pagination.hidden = totalPages <= 1;
+        pageNumbers.innerHTML = "";
+
+        if (totalPages <= 1) {
+          return;
+        }
+
+        previousButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages;
+
+        let pages = [];
+        if (totalPages <= 5) {
+          for (let page = 1; page <= totalPages; page += 1) pages.push(page);
+        } else {
+          pages = [1];
+          if (currentPage > 3) pages.push("…");
+          const start = Math.max(2, currentPage - 1);
+          const end = Math.min(totalPages - 1, currentPage + 1);
+          for (let page = start; page <= end; page += 1) pages.push(page);
+          if (currentPage < totalPages - 2) pages.push("…");
+          pages.push(totalPages);
+        }
+
+        pages.forEach(function (page) {
+          if (page === "…") {
+            const ellipsis = document.createElement("span");
+            ellipsis.className = "page-ellipsis";
+            ellipsis.textContent = "…";
+            pageNumbers.appendChild(ellipsis);
+            return;
+          }
+
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "page-button";
+          button.textContent = String(page);
+          button.setAttribute("aria-label", "Page " + page);
+          if (page === currentPage) {
+            button.setAttribute("aria-current", "page");
+          }
+          button.addEventListener("click", function () {
+            currentPage = page;
+            renderPagination();
+            renderCurrentPage();
+            scrollToDirectory();
+          });
+          pageNumbers.appendChild(button);
+        });
+      }
+
+      function renderCurrentPage() {
+        const start = (currentPage - 1) * pageSize;
+        const end = start + pageSize;
+        const currentCards = new Set(matchingCards.slice(start, end));
+
+        cards.forEach(function (card) {
+          card.hidden = !currentCards.has(card);
+        });
+      }
+
+      function scrollToDirectory() {
+        const target = document.getElementById("tool-cards");
+        if (target) {
+          target.scrollIntoView({
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "auto"
+              : "smooth",
+            block: "start"
+          });
+        }
+      }
+
       function applyFilters(options) {
         const settings = options || {};
         const query = normalize(searchInput.value);
-        let visibleCount = 0;
 
-        cards.forEach(function (card) {
+        matchingCards = cards.filter(function (card) {
           const cardCategories = String(card.dataset.category || "")
             .split(/\s+/)
             .filter(Boolean);
@@ -2170,25 +2312,42 @@
           const matchesSearch =
             query === "" || getCardSearchText(card).includes(query);
 
-          const visible = matchesCategory && matchesSearch;
-          card.hidden = !visible;
-
-          if (visible) {
-            visibleCount += 1;
-          }
+          return matchesCategory && matchesSearch;
         });
 
+        currentPage = 1;
         resultsCount.innerHTML =
-          "<strong>" + visibleCount + "</strong> " +
-          (visibleCount === 1 ? "tool found" : "tools found");
+          "<strong>" + matchingCards.length + "</strong> " +
+          (matchingCards.length === 1 ? "tool found" : "tools found");
 
-        emptyState.classList.toggle("visible", visibleCount === 0);
+        emptyState.classList.toggle("visible", matchingCards.length === 0);
         updateFilterButtons();
+        renderPagination();
+        renderCurrentPage();
 
         if (settings.updateUrl) {
           updateUrl();
         }
       }
+
+      previousButton.addEventListener("click", function () {
+        if (currentPage > 1) {
+          currentPage -= 1;
+          renderPagination();
+          renderCurrentPage();
+          scrollToDirectory();
+        }
+      });
+
+      nextButton.addEventListener("click", function () {
+        const totalPages = Math.ceil(matchingCards.length / pageSize);
+        if (currentPage < totalPages) {
+          currentPage += 1;
+          renderPagination();
+          renderCurrentPage();
+          scrollToDirectory();
+        }
+      });
 
       function updateUrl() {
         const params = new URLSearchParams(window.location.search);
