@@ -1,5 +1,15 @@
 (() => {
   "use strict";
+  // Google AdSense publisher code. The homepage also includes the static tag in its HTML.
+  // This shared script runs on the other site pages that load storeapp-orb.js.
+  if (!document.querySelector('script[src*="adsbygoogle.js?client=ca-pub-4438206647405776"]')) {
+    const adsenseScript = document.createElement("script");
+    adsenseScript.async = true;
+    adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4438206647405776";
+    adsenseScript.crossOrigin = "anonymous";
+    document.head.appendChild(adsenseScript);
+  }
+
 
   // Google Analytics 4 — shared site script loaded by the site's HTML pages.
   const STOREAPP_GA4_ID = "G-GDLCV9JWV7";
