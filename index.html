@@ -59,15 +59,15 @@
   <style>
     :root {
       color-scheme: dark;
-      --bg: #10111b;
-      --panel: #191b29;
-      --panel-hover: #202337;
-      --border: #2b2e40;
-      --text: #f4f5ff;
-      --muted: #a4a8bf;
-      --accent: #a99bff;
-      --accent-dark: #151326;
-      --green: #83e2bb;
+      --bg: #100720;
+      --panel: #241044;
+      --panel-hover: #35145f;
+      --border: #4b2b78;
+      --text: #f7f2ff;
+      --muted: #c0b2d8;
+      --accent: #8b45f5;
+      --accent-dark: #ffffff;
+      --green: #71e6c1;
       --width: 1120px;
       --header-height: 74px;
     }
@@ -947,6 +947,96 @@
     }
 
 .details-link{display:inline-flex;align-items:center;justify-content:center;min-height:40px;margin-bottom:9px;color:#c8beff;font-size:.9rem;font-weight:750;text-decoration:underline;text-underline-offset:4px}.discovery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}.discovery-card{display:block;padding:20px;border:1px solid var(--border);border-radius:15px;background:var(--panel);transition:border-color .2s ease,transform .2s ease}.discovery-card:hover{border-color:#7770ad;transform:translateY(-2px)}.discovery-card h3{margin:0 0 8px;font-size:1.03rem}.discovery-card p{margin:0;color:var(--muted);font-size:.91rem}.partner-band{padding:28px;border:1px solid #393351;border-radius:18px;background:var(--panel);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}.partner-band h2{margin:0 0 8px}.partner-band p{margin:0;max-width:670px;color:var(--muted)}@media(max-width:850px){.discovery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.discovery-grid{grid-template-columns:1fr}.partner-band{padding:20px}}
+
+    /* StoreApp purple-violet visual theme */
+    body {
+      background:
+        radial-gradient(ellipse at 50% 12%, rgba(111, 35, 190, .30), transparent 48%),
+        linear-gradient(145deg, #100720 0%, #1b0a36 48%, #120824 100%);
+    }
+    header {
+      background: rgba(20, 7, 42, .94);
+      border-bottom-color: rgba(151, 99, 224, .24);
+    }
+    .hero {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(132, 57, 238, .34), transparent 62%),
+        linear-gradient(180deg, rgba(37, 11, 75, .82), rgba(16, 7, 32, .08));
+    }
+    .directory-section {
+      background: linear-gradient(180deg, rgba(65, 23, 111, .16), rgba(20, 8, 39, .10));
+      border-top-color: rgba(154, 103, 220, .24);
+    }
+    .search-panel,
+    .card,
+    .info-card,
+    .principle,
+    .faq-item {
+      background: linear-gradient(135deg, rgba(69, 30, 116, .72), rgba(35, 15, 67, .88));
+      border-color: rgba(157, 111, 220, .28);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+    }
+    .card:hover {
+      background: linear-gradient(135deg, rgba(91, 39, 151, .86), rgba(43, 17, 82, .96));
+      border-color: rgba(185, 139, 255, .62);
+      box-shadow: 0 12px 30px rgba(8, 2, 20, .24);
+    }
+    .search-input,
+    .filter-button {
+      background: rgba(20, 9, 43, .78);
+      border-color: rgba(151, 105, 211, .30);
+    }
+    .filter-button[aria-pressed="true"],
+    .page-button[aria-current="page"],
+    .button-primary,
+    .search-button {
+      background: linear-gradient(135deg, #a34bff, #7134e8);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(124, 53, 231, .28);
+    }
+    .button-secondary,
+    .page-button,
+    .visit {
+      background: rgba(78, 39, 126, .42);
+      border-color: rgba(164, 119, 224, .34);
+      color: #eee5ff;
+    }
+    .visit:hover,
+    .button-secondary:hover,
+    .page-button:hover:not(:disabled) {
+      background: rgba(126, 66, 196, .42);
+      border-color: rgba(193, 155, 255, .68);
+    }
+    .eyebrow,
+    .filter-label,
+    .tag,
+    .text-button,
+    .faq-answer a {
+      color: #d5baff;
+    }
+    .approach-section {
+      background: linear-gradient(135deg, rgba(48, 17, 85, .72), rgba(20, 8, 39, .94));
+      border-color: rgba(154, 103, 220, .24);
+    }
+    .closing-box {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(151, 76, 255, .28), transparent 72%),
+        linear-gradient(135deg, #32105d, #1d0b3a);
+      border-color: rgba(178, 126, 255, .38);
+    }
+    footer {
+      background: #0c0618;
+      border-top-color: rgba(154, 103, 220, .24);
+    }
+    @media (max-width: 700px) {
+      body {
+        background:
+          radial-gradient(ellipse at 50% 8%, rgba(111, 35, 190, .24), transparent 44%),
+          linear-gradient(160deg, #100720, #1a0a32 58%, #100720);
+      }
+    }
+
   </style>
 </head>
 
