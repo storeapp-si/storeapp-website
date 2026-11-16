@@ -1,0 +1,17 @@
+:root{color-scheme:dark;--bg:#100720;--panel:#241044;--panel-hover:#35145f;--border:#4b2b78;--text:#f7f2ff;--muted:#c0b2d8;--accent:#8b45f5;--green:#71e6c1}
+html,body{background-color:#100720;color:#f7f2ff}
+body{background-image:radial-gradient(ellipse at 50% 8%,rgba(111,35,190,.24),transparent 48%),linear-gradient(155deg,#100720 0%,#1b0a36 52%,#120824 100%)}
+header{background-color:rgba(20,7,42,.94);border-color:rgba(151,99,224,.28)}
+footer{background-color:#0c0618;border-color:rgba(151,99,224,.25)}
+.panel,.tile,.card,.info-card,.principle,.faq-item,.answer,.synthesis,.comparison-card,.feature-card,.tool-card,.guide-card,.discovery-card,.partner-band,.closing-box{background-color:rgba(48,20,82,.82);border-color:rgba(157,111,220,.34)}
+.panel,.tile,.card,.info-card,.answer,.synthesis{box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+a:not(.button):not(.brand){color:#d8c4ff}
+.button,button,input[type=submit],input[type=button]{border-color:rgba(169,119,235,.42)}
+.primary,.button-primary,.search-button,button[type=submit]{background:linear-gradient(135deg,#a34bff,#7134e8);color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(124,53,231,.24)}
+.button:not(.primary),.secondary,.page-button,.visit{background-color:rgba(78,39,126,.42);color:#eee5ff}
+input,textarea,select{background-color:rgba(20,9,43,.88);border-color:rgba(151,105,211,.4);color:#f7f2ff}
+th{background-color:rgba(76,39,121,.68);color:#e6d8ff}
+td,th{border-color:rgba(151,105,211,.28)}
+.note,.callout,blockquote{background-color:rgba(72,35,112,.38);border-color:#a56aff}
+::selection{background:#8544d8;color:#fff}
+@media(max-width:700px){body{background-image:linear-gradient(160deg,#100720,#1a0a32 58%,#100720)}}
