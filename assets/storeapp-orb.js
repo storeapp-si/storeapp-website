@@ -192,7 +192,7 @@
         trigger.setAttribute("aria-expanded","false");
       }
     });
-    const saved = (document.cookie.match(/(?:^|;\\s*)googtrans=\\/en\\/([^;]+)/) || [])[1];
+    const saved = (document.cookie.match(/(?:^|;\s*)googtrans=\/en\/([^;]+)/) || [])[1];
     const savedLanguage = saved ? decodeURIComponent(saved) : "en";
     setCurrent(savedLanguage);
 
