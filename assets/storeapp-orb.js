@@ -109,7 +109,7 @@
   if (!document.getElementById("sa-language-switcher")) {
     const languageStyle = document.createElement("style");
     languageStyle.textContent = `
-      #sa-language-switcher{position:relative;z-index:10001;display:inline-flex;align-items:center;margin:4px 0;font:600 13px/1.2 system-ui,sans-serif}
+      #sa-language-switcher{position:relative!important;z-index:10020!important;display:inline-flex!important;align-items:center;flex:0 0 auto;margin:4px 8px;font:600 13px/1.2 system-ui,sans-serif}
       #sa-language-trigger{display:flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid rgba(180,140,255,.48);border-radius:999px;background:rgba(39,17,68,.96);color:#fff;cursor:pointer;font:inherit;box-shadow:0 3px 14px #0003}
       #sa-language-trigger:focus-visible,#sa-language-options button:focus-visible{outline:2px solid #c6a4ff;outline-offset:2px}
       #sa-language-options{position:absolute;top:calc(100% + 8px);right:0;display:none;min-width:190px;max-height:min(70vh,420px);overflow:auto;padding:6px;border:1px solid rgba(180,140,255,.42);border-radius:14px;background:#1b0d30;box-shadow:0 12px 36px #0009}
@@ -137,9 +137,9 @@
     const switcher = document.createElement("div");
     switcher.id = "sa-language-switcher";
     switcher.innerHTML = '<button id="sa-language-trigger" type="button" aria-haspopup="true" aria-expanded="false"><span id="sa-language-current-flag">🌐</span><span id="sa-language-current-name">Language</span><span aria-hidden="true">▾</span></button><div id="sa-language-options" role="menu" aria-label="Choose language"></div>';
-    const nav = document.querySelector("header nav, header .nav, header");
-    if (nav) nav.appendChild(switcher);
-    else document.body.appendChild(switcher);
+    const nav = document.querySelector("header .wrap.nav, header .nav, header");
+    if (nav) { const links = nav.querySelector(".nav-links"); if (links) nav.insertBefore(switcher, links); else nav.appendChild(switcher); }
+    else document.body.insertBefore(switcher, document.body.firstChild);
 
     const trigger = switcher.querySelector("#sa-language-trigger");
     const options = switcher.querySelector("#sa-language-options");
