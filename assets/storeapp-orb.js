@@ -109,7 +109,7 @@
   if (!document.getElementById("sa-language-switcher")) {
     const languageStyle = document.createElement("style");
     languageStyle.textContent = `
-      #sa-language-switcher{position:relative!important;z-index:10020!important;display:inline-flex!important;align-items:center;flex:0 0 auto;margin:4px 8px;font:600 13px/1.2 system-ui,sans-serif}
+      #sa-language-switcher{position:fixed!important;top:calc(env(safe-area-inset-top, 0px) + 12px)!important;right:12px!important;z-index:2147483000!important;display:inline-flex!important;align-items:center;margin:0!important;font:600 13px/1.2 system-ui,sans-serif}
       #sa-language-trigger{display:flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid rgba(180,140,255,.48);border-radius:999px;background:rgba(39,17,68,.96);color:#fff;cursor:pointer;font:inherit;box-shadow:0 3px 14px #0003}
       #sa-language-trigger:focus-visible,#sa-language-options button:focus-visible{outline:2px solid #c6a4ff;outline-offset:2px}
       #sa-language-options{position:absolute;top:calc(100% + 8px);right:0;display:none;min-width:190px;max-height:min(70vh,420px);overflow:auto;padding:6px;border:1px solid rgba(180,140,255,.42);border-radius:14px;background:#1b0d30;box-shadow:0 12px 36px #0009}
@@ -120,7 +120,7 @@
       #sa-google-translate{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}
       .goog-te-banner-frame,.skiptranslate iframe{display:none!important}
       body{top:0!important}
-      @media(max-width:600px){#sa-language-switcher{margin:2px 0}#sa-language-trigger{padding:7px 9px}}
+      @media(max-width:600px){#sa-language-switcher{top:calc(env(safe-area-inset-top, 0px) + 10px)!important;right:10px!important}#sa-language-trigger{padding:8px 10px;background:#271144;border:2px solid #b58aff}}
     `;
     document.head.appendChild(languageStyle);
 
@@ -137,9 +137,7 @@
     const switcher = document.createElement("div");
     switcher.id = "sa-language-switcher";
     switcher.innerHTML = '<button id="sa-language-trigger" type="button" aria-haspopup="true" aria-expanded="false"><span id="sa-language-current-flag">🌐</span><span id="sa-language-current-name">Language</span><span aria-hidden="true">▾</span></button><div id="sa-language-options" role="menu" aria-label="Choose language"></div>';
-    const nav = document.querySelector("header .wrap.nav, header .nav, header");
-    if (nav) { const links = nav.querySelector(".nav-links"); if (links) nav.insertBefore(switcher, links); else nav.appendChild(switcher); }
-    else document.body.insertBefore(switcher, document.body.firstChild);
+    document.body.appendChild(switcher);
 
     const trigger = switcher.querySelector("#sa-language-trigger");
     const options = switcher.querySelector("#sa-language-options");
