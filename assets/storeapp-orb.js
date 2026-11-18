@@ -223,6 +223,32 @@
     document.head.appendChild(translateScript);
   }
 
+
+  // Floating back-to-top control, matching the reference site's simple up-arrow button.
+  if (!document.getElementById("sa-back-to-top")) {
+    const backTopStyle = document.createElement("style");
+    backTopStyle.textContent = `
+      #sa-back-to-top{position:fixed;left:22px;bottom:24px;z-index:9996;width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(180,140,255,.55);border-radius:50%;background:linear-gradient(145deg,#32145a,#1b0b32);color:#fff;font:700 25px/1 system-ui,sans-serif;box-shadow:0 4px 18px #0007,0 0 16px rgba(139,69,245,.25);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .2s,transform .2s,visibility .2s;-webkit-tap-highlight-color:transparent}
+      #sa-back-to-top.sa-visible{opacity:1;visibility:visible;transform:translateY(0)}
+      #sa-back-to-top:hover{background:linear-gradient(145deg,#7134e8,#a34bff);transform:translateY(-3px)}
+      #sa-back-to-top:focus-visible{outline:2px solid #c6a4ff;outline-offset:3px}
+      @media(max-width:600px){#sa-back-to-top{left:14px;bottom:18px;width:42px;height:42px;font-size:23px}}
+      @media(prefers-reduced-motion:reduce){#sa-back-to-top{transition:none}}
+    `;
+    document.head.appendChild(backTopStyle);
+    const backTop = document.createElement("button");
+    backTop.id = "sa-back-to-top";
+    backTop.type = "button";
+    backTop.setAttribute("aria-label","Back to top");
+    backTop.setAttribute("title","Back to top");
+    backTop.textContent = "↑";
+    document.body.appendChild(backTop);
+    const updateBackTop = () => backTop.classList.toggle("sa-visible", window.scrollY > 300);
+    window.addEventListener("scroll", updateBackTop, {passive:true});
+    backTop.addEventListener("click", () => window.scrollTo({top:0,behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}));
+    updateBackTop();
+  }
+
   if (window.__storeAppOrbReady) return;
   window.__storeAppOrbReady = true;
 
